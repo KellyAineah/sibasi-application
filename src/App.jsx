@@ -3,6 +3,7 @@ import Navbar from './Components/Navbar'
 import Login from './Components/Login'
 import Home from './Components/Home'
 import './App.css'
+import Dashboard from './Components/Dashboard'
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path='/dashboard' element={<Login />} />
+        <Route path='/dashboard' element={<Dashboard />} />
 
        </Routes> 
       

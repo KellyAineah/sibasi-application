@@ -1,8 +1,9 @@
 import './Navbar.css';
-import React, { useEffect, useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState, useRef} from 'react';
+import { NavLink, useNavigate} from 'react-router-dom';
 import { FaTachometerAlt } from 'react-icons/fa';
-import { useRef } from 'react';
+
+
 
 function Navbar() {
   // tracking the state of the dashboard dropdown and login status
