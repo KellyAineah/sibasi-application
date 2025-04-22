@@ -1,19 +1,24 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './Components/Navbar'
-import { NavLink, useNavigate } from 'react-router-dom'
-import './App.css'
 import Login from './Components/Login'
 import Home from './Components/Home'
+import './App.css'
 
 
 function App() {
   
 
   return (
-    <>
+    <Router>
       <Navbar />
-      <Home />
-      <Login />
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path='/dashboard' element={<Login />} />
+
+       </Routes> 
+      
+    </Router>
   )
 }
 
