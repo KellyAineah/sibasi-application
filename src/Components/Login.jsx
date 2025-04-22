@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import validator from 'validator';
 import { useNavigate } from 'react-router-dom';
 import './Login.css'; 
+import { useAuth } from './Authcontext'; 
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -9,6 +10,7 @@ const Login = () => {
   const [errors, setErrors] = useState({ email: '', password: '' });
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
   const navigate = useNavigate();
+  const { login } = useAuth();
 
   useEffect(() => {
     const isEmailValid = validator.isEmail(email);
@@ -24,7 +26,7 @@ const Login = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    localStorage.setItem('isLoggedIn', 'true');
+    login();
     navigate('/dashboard');
   };
 

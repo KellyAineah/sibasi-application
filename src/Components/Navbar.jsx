@@ -1,23 +1,33 @@
 import './Navbar.css';
-import React, { useEffect, useState, useRef} from 'react';
-import { NavLink, useNavigate} from 'react-router-dom';
+import React, { useEffect, useState, useRef } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
 import { FaTachometerAlt } from 'react-icons/fa';
-
-
+import { useAuth } from './Authcontext';  
 
 function Navbar() {
-  // tracking the state of the dashboard dropdown and login status
+  // tracking the state of the dashboard dropdown
   const [dashboardOpen, setDashboardOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  // Using useAuth to get login status and logout function
+  const { isLoggedIn, logout } = useAuth();  
 
   const navigate = useNavigate();
   const dashboardRef = useRef(null);
 
-  // Check if user is logged in 
+  // Handle clicks outside the dropdown
+  const handleClickOutside = (event) => {
+    if (dashboardRef.current && !dashboardRef.current.contains(event.target)) {
+      setDashboardOpen(false);
+    }
+  };
+
+  // Add event listener to handle clicks outside the dropdown
   useEffect(() => {
-    // Check local storage for login status
-    const loggedIn = localStorage.getItem('isLoggedIn') === 'true';
-    setIsLoggedIn(loggedIn);
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      // Remove event listener to prevent memory leaks
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
   }, []);
 
   const toggleDashboardDropdown = () => {
@@ -28,25 +38,8 @@ function Navbar() {
     }
   };
 
-  const handleClickOutside = (event) => {
-    //Dom element dashboardRef is attached to
-    //check if the click is outside the dashboard dropdown
-    if (dashboardRef.current && !dashboardRef.current.contains(event.target)) {
-      setDashboardOpen(false);
-    }
-  };
- // Add event listener to handle clicks outside the dropdown
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      //no memory leak when component unmounted
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
   const handleLogout = () => {
-    localStorage.removeItem('isLoggedIn');
-    setIsLoggedIn(false);
+    logout();  
     navigate('/');
   };
 
