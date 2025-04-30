@@ -51,7 +51,9 @@ function Navbar() {
 
       <ul className="navbar-list">
         <li>
-          <NavLink to="/">Home</NavLink>
+          <NavLink to="/" 
+          className={({ isActive }) => (isActive ? "active-link" : undefined)}
+          >Home</NavLink>
         </li>
 
         <li className="navbar-dashboard" ref={dashboardRef}>
@@ -84,7 +86,8 @@ function Navbar() {
           </li>
         ) : (
           <li>
-            <NavLink to="/login">Login</NavLink>
+            <NavLink to="/login" className={({ isActive }) => (isActive ? "active-link" : undefined)}
+            >Login</NavLink>
           </li>
         )}
       </ul>

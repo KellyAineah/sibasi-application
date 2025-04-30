@@ -1,0 +1,91 @@
+.todo-container {
+    max-width: 500px;
+    margin: 50px auto;
+    background-color: #fff;
+    padding: 20px 25px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .todo-title {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .todo-input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .todo-input {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .todo-add-button {
+    background-color: #3A59D1;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .todo-add-button:hover {
+    background-color: #2a48c1;
+  }
+  
+  .todo-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 8px;
+  }
+  
+  .todo-edit-input {
+    flex-grow: 1;
+    padding: 8px;
+    margin-right: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .todo-actions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .todo-edit-button,
+  .todo-delete-button,
+  .todo-save-button {
+    font-size: 0.9rem;
+    border: none;
+    background: none;
+    color: #3A59D1;
+    cursor: pointer;
+  }
+  
+  .todo-delete-button {
+    color: red;
+  }
+  
+  .todo-edit-button:hover,
+  .todo-delete-button:hover,
+  .todo-save-button:hover {
+    text-decoration: underline;
+  }
+  
